@@ -10,7 +10,7 @@
         "type": "git",
         "url": "https://github.com/freakone/cursoruler.git"
     },
-    "icon": "icon.png",
+    "icon": "images/ruler.png",
     "engines": {
         "vscode": "^0.11.0"
     },
