@@ -40,7 +40,6 @@ export class CursorRuler {
                 currentLineText = editor.document.lineAt(editor.selection.start.line).text,
                 currentLineBeginningTabsBeforeSel = beginningTabRegex.exec(currentLineText.substr(0, editor.selection.start.character))[0].length,
                 currentCol = editor.selection.start.character + currentLineBeginningTabsBeforeSel * (tabSize - 1);
-            console.log(tabSize, currentCol);
             for (let i = 0; i < editor.document.lineCount; ++i) {
                 let text = editor.document.lineAt(i).text,
                     beginningTabs = beginningTabRegex.exec(text)[0].length,
