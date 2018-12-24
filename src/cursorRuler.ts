@@ -34,12 +34,25 @@ export class CursorRuler {
         }
 
         if (editor.selection.isEmpty) {
-            var decorations = [];
-
-            for (var i = 0; i < editor.document.lineCount; i++) {
-                if (editor.document.lineAt(i).text.length >= editor.selection.end.character) {
-                    decorations.push(new Range(i, editor.selection.start.character,
-                        i, editor.selection.end.character));
+            let decorations = [],
+                beginningTabRegex = /^\t*/,
+                tabSize = <number>editor.options.tabSize,
+                currentLineText = editor.document.lineAt(editor.selection.start.line).text,
+                currentLineBeginningTabsBeforeSel = beginningTabRegex.exec(currentLineText.substr(0, editor.selection.start.character))[0].length,
+                currentCol = editor.selection.start.character + currentLineBeginningTabsBeforeSel * (tabSize - 1);
+            for (let i = 0; i < editor.document.lineCount; ++i) {
+                let text = editor.document.lineAt(i).text,
+                    beginningTabs = beginningTabRegex.exec(text)[0].length,
+                    decorationCol = currentCol;
+                if (decorationCol > beginningTabs * tabSize) {
+                    decorationCol -= beginningTabs * (tabSize - 1);
+                } else {
+                    decorationCol /= tabSize;
+                }
+                if (text.length >= decorationCol &&
+                    (currentCol > beginningTabs * tabSize || currentCol % tabSize == 0))
+                {
+                    decorations.push(new Range(i, decorationCol, i, decorationCol));
                 }
             }
 
