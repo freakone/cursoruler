@@ -10,6 +10,11 @@ In Visual Studio Code there is only a static vertical ruler option. There is no 
 
 ## Release Notes
 
+### 0.0.3
+
+Thanks to @hkcr fix for indentation with mixed spaces and tabs. 
+Bump to the newest vscode version.
+
 ### 0.0.1
 
 Initial release of Cursor Ruler.

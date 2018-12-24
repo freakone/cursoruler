@@ -2,7 +2,7 @@
     "name": "cursoruler",
     "displayName": "cursoruler",
     "description": "Cursor ruler for Visual Studio Code",
-    "version": "0.0.2",
+    "version": "0.0.3",
     "publisher": "freakone",
     "license": "MIT",
     "homepage": "https://github.com/freakone/cursoruler",
