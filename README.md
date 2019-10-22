@@ -10,6 +10,10 @@ In Visual Studio Code there is only a static vertical ruler option. There is no 
 
 ## Release Notes
 
+### 0.0.4
+
+Fix security vulnerabilities in deps.
+
 ### 0.0.3
 
 Thanks to @hkcr fix for indentation with mixed spaces and tabs. 
